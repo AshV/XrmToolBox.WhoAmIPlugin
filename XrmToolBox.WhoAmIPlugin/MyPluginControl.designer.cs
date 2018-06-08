@@ -31,7 +31,6 @@
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             this.tssSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbSample = new System.Windows.Forms.ToolStripButton();
             this.btn_WhoAmI = new System.Windows.Forms.Button();
             this.lst_UserData = new System.Windows.Forms.ListBox();
             this.toolStripMenu.SuspendLayout();
@@ -42,8 +41,7 @@
             this.toolStripMenu.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbClose,
-            this.tssSeparator1,
-            this.tsbSample});
+            this.tssSeparator1});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
             this.toolStripMenu.Size = new System.Drawing.Size(559, 25);
@@ -62,14 +60,6 @@
             // 
             this.tssSeparator1.Name = "tssSeparator1";
             this.tssSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsbSample
-            // 
-            this.tsbSample.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbSample.Name = "tsbSample";
-            this.tsbSample.Size = new System.Drawing.Size(47, 22);
-            this.tsbSample.Text = "Try me";
-            this.tsbSample.Click += new System.EventHandler(this.tsbSample_Click);
             // 
             // btn_WhoAmI
             // 
@@ -109,7 +99,6 @@
         #endregion
         private System.Windows.Forms.ToolStrip toolStripMenu;
         private System.Windows.Forms.ToolStripButton tsbClose;
-        private System.Windows.Forms.ToolStripButton tsbSample;
         private System.Windows.Forms.ToolStripSeparator tssSeparator1;
         private System.Windows.Forms.Button btn_WhoAmI;
         private System.Windows.Forms.ListBox lst_UserData;
