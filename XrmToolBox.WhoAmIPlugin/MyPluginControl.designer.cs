@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyPluginControl));
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
-            this.tsbSample = new System.Windows.Forms.ToolStripButton();
             this.tssSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbSample = new System.Windows.Forms.ToolStripButton();
+            this.btn_WhoAmI = new System.Windows.Forms.Button();
+            this.lst_UserData = new System.Windows.Forms.ListBox();
             this.toolStripMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,13 +41,12 @@
             // 
             this.toolStripMenu.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-                this.tsbClose,
-                this.tssSeparator1,
-                this.tsbSample});
+            this.tsbClose,
+            this.tssSeparator1,
+            this.tsbSample});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStripMenu.Size = new System.Drawing.Size(839, 31);
+            this.toolStripMenu.Size = new System.Drawing.Size(559, 25);
             this.toolStripMenu.TabIndex = 4;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -54,31 +54,50 @@
             // 
             this.tsbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbClose.Name = "tsbClose";
-            this.tsbClose.Size = new System.Drawing.Size(28, 28);
+            this.tsbClose.Size = new System.Drawing.Size(86, 22);
             this.tsbClose.Text = "Close this tool";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
             // tssSeparator1
             // 
             this.tssSeparator1.Name = "tssSeparator1";
-            this.tssSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.tssSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // tsbSample
             // 
             this.tsbSample.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsbSample.Name = "tsbSample";
-            this.tsbSample.Size = new System.Drawing.Size(28, 28);
+            this.tsbSample.Size = new System.Drawing.Size(47, 22);
             this.tsbSample.Text = "Try me";
             this.tsbSample.Click += new System.EventHandler(this.tsbSample_Click);
             // 
+            // btn_WhoAmI
+            // 
+            this.btn_WhoAmI.Location = new System.Drawing.Point(21, 45);
+            this.btn_WhoAmI.Name = "btn_WhoAmI";
+            this.btn_WhoAmI.Size = new System.Drawing.Size(491, 38);
+            this.btn_WhoAmI.TabIndex = 5;
+            this.btn_WhoAmI.Text = "Who Am I\r\n";
+            this.btn_WhoAmI.UseVisualStyleBackColor = true;
+            this.btn_WhoAmI.Click += new System.EventHandler(this.btn_WhoAmI_Click);
+            // 
+            // lst_UserData
+            // 
+            this.lst_UserData.FormattingEnabled = true;
+            this.lst_UserData.Location = new System.Drawing.Point(21, 89);
+            this.lst_UserData.Name = "lst_UserData";
+            this.lst_UserData.Size = new System.Drawing.Size(491, 186);
+            this.lst_UserData.TabIndex = 6;
+            // 
             // MyPluginControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lst_UserData);
+            this.Controls.Add(this.btn_WhoAmI);
             this.Controls.Add(this.toolStripMenu);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "SampleTool";
-            this.Size = new System.Drawing.Size(839, 462);
+            this.Name = "MyPluginControl";
+            this.Size = new System.Drawing.Size(559, 300);
             this.Load += new System.EventHandler(this.MyPluginControl_Load);
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
@@ -92,5 +111,7 @@
         private System.Windows.Forms.ToolStripButton tsbClose;
         private System.Windows.Forms.ToolStripButton tsbSample;
         private System.Windows.Forms.ToolStripSeparator tssSeparator1;
+        private System.Windows.Forms.Button btn_WhoAmI;
+        private System.Windows.Forms.ListBox lst_UserData;
     }
 }

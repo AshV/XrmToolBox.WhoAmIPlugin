@@ -11,6 +11,7 @@ using XrmToolBox.Extensibility;
 using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Sdk;
 using McTools.Xrm.Connection;
+using Microsoft.Crm.Sdk.Messages;
 
 namespace XrmToolBox.WhoAmIPlugin
 {
@@ -31,6 +32,7 @@ namespace XrmToolBox.WhoAmIPlugin
             if (!SettingsManager.Instance.TryLoad(GetType(), out mySettings))
             {
                 mySettings = new Settings();
+
 
                 LogWarning("Settings not found => a new settings file has been created!");
             }
@@ -100,5 +102,45 @@ namespace XrmToolBox.WhoAmIPlugin
             mySettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
             LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
         }
+
+private void btn_WhoAmI_Click(object sender, EventArgs e)
+{
+     // calling WhoAmI() from ExecuteMethod so connection will be smooth
+     ExecuteMethod(WhoAmI);
+}
+
+private void WhoAmI()
+{
+    WorkAsync(new WorkAsyncInfo
+    {
+        // Showing message until background work is completed
+        Message = "Retrieving WhoAmI Information",
+
+        // Main task which will be executed asynchronously
+        Work = (worker, args) =>
+        {
+            // making WhoAmIRequest
+            var whoAmIResponse = (WhoAmIResponse)Service.Execute(new WhoAmIRequest());
+
+            // retrieving details of current user
+            var user = Service.Retrieve("systemuser", whoAmIResponse.UserId, new Microsoft.Xrm.Sdk.Query.ColumnSet(true));
+
+            // placing results to args, which will be sent to PostWorkCallBack to display to user
+            var userData = new List<string>();
+            foreach (var data in user.Attributes)
+                userData.Add($"{data.Key} : {data.Value}");
+            args.Result = userData;
+        },
+
+        // Work is completed, results can be shown to user
+        PostWorkCallBack = (args) =>
+        {
+            if (args.Error != null)
+                MessageBox.Show(args.Error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                lst_UserData.DataSource = args.Result;
+        }
+    });
+}
     }
 }
