@@ -86,6 +86,7 @@ namespace XrmToolBox.WhoAmIPlugin
                     if (args.Error != null)
                         MessageBox.Show(args.Error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
+                        // Binding result data to ListBox Control
                         lst_UserData.DataSource = args.Result;
                 }
             });
